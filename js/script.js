@@ -55,21 +55,21 @@ while (randomList.length < 16) {
 } 
 
 
-// Chiedo all'utente i numeri da inserire
-for (var i = 0; i < 84; i++) {
+// Chiedo all'utente i numeri da inserire 
+// Inizializzo il contatore ed eseguo il ciclo
+
+var counter = 0; 
+while (counter < 84) {
     var userNumber = parseInt(prompt('Inserisci un numero'));
-    if (userNumber < 1 || userNumber > 100 || isNaN(userNumber)) {
-        alert('Errore: devi inserire un numero tra 1 e 100');
-        i--;
-    } else if (userList.includes(userNumber)) {
-        alert('Errore: numero già inserito');
-        i--;
+    if (userNumber < 1 || userNumber > 100 || isNaN(userNumber) || userList.includes(userNumber)) {
+        alert('Errore: devi inserire un numero tra 1 e 100 (che non sia già stato inserito)');
     } else if (randomList.includes(userNumber)) {
         alert('BOOM, hai perso!');
         break;
     } else {
         userList.push(userNumber);
     }
+    counter ++;
 }
 
 // STAMPO IL RISULTATO FINALE
